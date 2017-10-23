@@ -20,7 +20,7 @@ public class StudentTest {
         int n = 6;
         AdjacencyList G = new AdjacencyList(n);
         G.addEdge(0,0);
-        G.addEdge(1,2); G.addEdge(1,4);
+        G.addEdge(1,2); G.addEdge(1,4); //doesnt add a new node.
         G.addEdge(2,5);
         G.addEdge(3,5); G.addEdge(3,0);
         G.addEdge(4,2);
@@ -39,10 +39,12 @@ public class StudentTest {
             for (Integer v : G.adjacent(u)) {
                 assertTrue(H[u][v]);
             }
+
         for (int u = 0; u != n; ++u)
             for (int v = 0; v != n; ++v)
-                if (H[u][v])
+                if (H[u][v]) {
                     assertTrue(contains(G.adjacent(u), v));
+                }
     }
 
     @Test
